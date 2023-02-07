@@ -20,18 +20,16 @@ variable "public-subnet-cidr-blocks" {
 }
 
 variable "subnet-public-name" {
-  type = string
-  default = "public-subnet"
+  type = list
 }
 
 variable "private-subnet-cidr-blocks" {
   type = list
-  default = ["10.0.1.0/24","10.0.4.0/24"]
+  default = ["10.0.1.0/24","10.0.3.0/24"]
 }
 
 variable "subnet-private-name" {
-  type = string
-  default = "private-subnet"
+  type = list
 }
 #-------------------------------------------------------Nat-Gateway
 variable "nat-gateway-main-name" {
@@ -99,7 +97,7 @@ variable "value-of-checks" {
 
 variable "key-pair-name" {
   type = string
-  default = "devops.pem"
+  default = "K-P_first-ins.pem"
 }
 
 variable "type-of-instance" {

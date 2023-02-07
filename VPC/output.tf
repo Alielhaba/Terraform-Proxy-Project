@@ -9,3 +9,7 @@ output "gw-id" {
 output "nat-id" {
   value = aws_nat_gateway.nat.id
 }
+
+output "nat" {
+  value = aws_nat_gateway.nat
+}

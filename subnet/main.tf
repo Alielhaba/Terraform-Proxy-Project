@@ -4,6 +4,6 @@ resource "aws_subnet" "subnet" {
   cidr_block = var.subnet-cidr-IP[count.index]
 
   tags = {
-    Name = var.subnet-name
+    Name = var.subnet-name[count.index]
   }
 }

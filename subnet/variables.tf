@@ -7,5 +7,5 @@ variable "vpc-cidr" {
 }
 
 variable "subnet-name" {
-  
+    type = list
 }

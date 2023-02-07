@@ -1,0 +1,18 @@
+
+dev-instance-two-private
+dev-instance-two-public 52.53.193.143
+dev-instance-one-private
+dev-instance-one-public 13.57.187.174
+dev-instance-two-public 50.18.129.21
+dev-instance-one-public 54.176.239.5
+dev-instance-two-private
+dev-instance-one-private
+dev-instance-one-public 13.56.253.47
+dev-instance-two-public 54.177.70.56
+dev-instance-one-private
+dev-instance-two-private
+dev-instance-one-private
+dev-instance-two-private
+dev-instance-one-public 13.57.184.243
+dev-instance-two-public 52.53.212.114
+dev-instance-one-private

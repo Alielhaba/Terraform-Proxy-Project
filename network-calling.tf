@@ -3,7 +3,7 @@ module "vpc" {
   cidr-vpc = var.vpc-cidrblock
   name-vpc = var.vpc-main-name
   gateway-name = var.gateway-main-name
-  subnet-pub = var.public-subnet-cidr-blocks[0]
+  subnet-pub = module.private-subnet.first-sub
   nat-name = var.nat-gateway-main-name
 }
 
