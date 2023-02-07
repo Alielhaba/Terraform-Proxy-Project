@@ -9,30 +9,29 @@ resource "aws_instance" "EC2-public" {
     command = "echo ${lookup(self.tags, "Name")}   ${self.public_ip} >> ./private-ip.txt"
   }
 
-  user_data = <<EOF
-    #!/bin/bash
-    # install httpd (Linux Version2)
-    yum update -y
-    yum -y install httpd
-    systemctl start httpd
-    EOF
-  # provisioner "remote-exec" {
+  # user_data = <<EOF
+  #   #!/bin/bash
+  #   # install httpd (Linux Version2)
+  #   yum update -y
+  #   yum -y install httpd
+  #   systemctl start httpd
+  #   EOF
+  provisioner "remote-exec" {
   
-  #   inline = [
-  #    "sudo apt update -y",
-  #     "sudo apt install nginx -y ",
-  #     # "echo 'server { \n listen 80 default_server; \n  listen [::]:80 default_server; \n  server_name _; \n  location / { \n  proxy_pass http://${var.private-load-balancer-dns}; \n  } \n}' > default",
-  #     "sudo mv default /etc/nginx/sites-enabled/default",
-  #     "sudo systemctl restart nginx",
-  #     "sudo apt install curl -y"
-  #   ]
-  # }
-  # connection {
-  #     type = "ssh"
-  #     host = self.public_ip
-  #     user        = "ubuntu"
-  #     private_key = file("./terraform-west.pem")
-  #   }
+    inline = [
+     "sudo apt update -y",
+      "sudo apt install nginx -y ",
+      "echo 'server {\nlisten 80 default_server;\nlisten [::]:80 default_server;\nserver_name _;\nlocation / {\nproxy_pass http://${var.private-ALB-DNS};\n}\n}' > default",
+      "sudo mv default /etc/nginx/sites-enabled/default",
+      "sudo systemctl restart nginx"
+    ]
+  }
+  connection {
+      type = "ssh"
+      host = self.public_ip
+      user        = "ubuntu"
+      private_key = file("~/.ssh/ali.pem")
+    }
   tags = {
     Name = var.instance-name
   }

@@ -13,6 +13,9 @@ variable "instance-type" {
 variable "SG-Public" {
 
 }
+variable "private-ALB-DNS" {
+
+}
 
 variable "instance-name" {
 

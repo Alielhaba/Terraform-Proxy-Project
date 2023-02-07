@@ -2,24 +2,42 @@ variable "alb-name" {
   
 }
 
-variable "AZ" {
+variable "subnets-id" {
+  
+}
+
+variable "SG-alb" {
 
 }
 
-variable "SG-ELB" {
+variable "check-internal" {
+  
+}
+
+variable "target-name" {
+  
+}
+
+variable "target-type" {
+  
+}
+
+variable "vpc-id" {
+  
+}
+
+variable "deny-check" {
+  
+}
+
+variable "alb-type" {
   
 }
 
 variable "instances-id" {
-
 }
 
 variable "check-cross-zone-load-balancing" {
-  type = bool
-  default = true
+ 
 }
 
-variable "check-connection-draining" {
-  type = bool
-  default = true
-}

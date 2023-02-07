@@ -6,6 +6,10 @@ variable "vpc-cidr" {
   
 }
 
+variable "AZ" {
+  
+}
+
 variable "subnet-name" {
     type = list
 }

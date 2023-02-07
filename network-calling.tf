@@ -3,12 +3,13 @@ module "vpc" {
   cidr-vpc = var.vpc-cidrblock
   name-vpc = var.vpc-main-name
   gateway-name = var.gateway-main-name
-  subnet-pub = module.private-subnet.first-sub
+  subnet-pub = module.public-subnet.first-sub
   nat-name = var.nat-gateway-main-name
 }
 
 module "public-subnet" {
   source = "./subnet"
+  AZ = ["us-west-1c" , "us-west-1b"]
   vpc-cidr = module.vpc.vpc-id
   subnet-cidr-IP = var.public-subnet-cidr-blocks
   subnet-name = var.subnet-public-name
@@ -16,6 +17,7 @@ module "public-subnet" {
 
 module "private-subnet" {
   source = "./subnet"
+  AZ = ["us-west-1c" , "us-west-1b"]
   vpc-cidr = module.vpc.vpc-id
   subnet-cidr-IP = var.private-subnet-cidr-blocks
   subnet-name = var.subnet-private-name
